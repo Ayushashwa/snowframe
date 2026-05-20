@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "snowframe"
+version = "0.1.0"
+description = "Notebook-native SQL workspace for Pandas DataFrames."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+license-files = ["LICENSE"]
+authors = [{ name = "Ayush Pandey" }]
+keywords = [
+    "pandas", "sql", "duckdb", "dataframe",
+    "jupyter", "databricks", "analytics", "notebook",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "pandas>=1.5",
+    "duckdb>=0.9",
+]
+
+[project.optional-dependencies]
+notebook = ["ipython>=7.0", "jupyterlab>=3.0"]
+excel    = ["openpyxl>=3.0"]
+dev      = [
+    "pytest>=7.0",
+    "ipython>=7.0",
+    "jupyterlab>=3.0",
+    "openpyxl>=3.0",
+    "build>=1.0",
+    "twine>=4.0",
+]
+
+[project.urls]
+Homepage     = "https://github.com/ayushpandey/snowframe"
+Repository   = "https://github.com/ayushpandey/snowframe"
+"Bug Tracker" = "https://github.com/ayushpandey/snowframe/issues"
+
+[project.scripts]
+snowframe = "snowframe.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["snowframe"]
